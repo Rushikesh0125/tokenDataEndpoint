@@ -7,8 +7,9 @@ const serverUrl = 'http://localhost:8181'; // Replace with the correct URL
 axios.get(`${serverUrl}/api/tokenData`)
   .then((response) => {
     // Handle the response data here
-    const responseData = response.data;
-    console.log('Data from Express server:', responseData);
+    const res = response.data.totalStakedBudsAcrossAllChains;
+    console.log(res > 0);
+    console.log('Data from Express server:', res);
   })
   .catch((error) => {
     // Handle any errors that occur during the request
