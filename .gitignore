@@ -46,7 +46,10 @@ build/Release
 
 # Dependency directories
 node_modules/
+jspm_packages
 
+# Serverless directories
+.serverless
 # Optional npm cache directory
 .npm
 
@@ -66,3 +69,4 @@ node_modules/
 .env
 
 getDeployedAddresses.js
+./serverless.yaml

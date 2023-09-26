@@ -4,7 +4,7 @@ const axios = require('axios');
 const serverUrl = 'http://localhost:8181'; // Replace with the correct URL
 
 // Make a GET request to the /api/tokenData endpoint
-axios.get(`${serverUrl}/api/tokenData`)
+axios.get(`${serverUrl}/totalStakedBudsAcrossAllChains`)
   .then((response) => {
     // Handle the response data here
     const res = response.data.totalStakedBudsAcrossAllChains;
@@ -14,4 +14,27 @@ axios.get(`${serverUrl}/api/tokenData`)
   .catch((error) => {
     // Handle any errors that occur during the request
     console.error('Error fetching data from Express server:', error.message);
-  });
+});
+
+//33561349
+
+axios.get(`${serverUrl}/getEvents/bscTestnet/raid/33672149/0x47BE42b034eC10Ab6F6881D61909D6dAe1F813ad`)
+  .then((response) => {
+    // Handle the response data here
+    const res = response.data;
+    console.log('Data from Express server:', res);
+  })
+  .catch((error) => {
+    // Handle any errors that occur during the request
+    console.error('Error fetching data from Express server:', error.message);
+});
+axios.get(`${serverUrl}/getCurrentBlockNumber/bscTestnet`)
+  .then((response) => {
+    // Handle the response data here
+    const res = response.data;
+    console.log('Data from Express server:', res);
+  })
+  .catch((error) => {
+    // Handle any errors that occur during the request
+    console.error('Error fetching data from Express server:', error.message);
+});

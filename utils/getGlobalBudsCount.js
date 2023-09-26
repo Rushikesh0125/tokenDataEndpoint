@@ -1,7 +1,7 @@
 const ethers = require('ethers');
 require('dotenv').config();
-const ABI = require('./ABI');
-const DeployedAddresses = require('./getDeployedAddresses')
+const ABI = require('../ABIs/stakingABI');
+const DeployedAddresses = require('../getDeployedAddresses')
 
 
 const getProviderURL = async (networkName) => {
@@ -31,23 +31,21 @@ const getGlobalBudsCount = async () => {
 
     const chains = ["goerli", "mumbai", "bscTestnet"];
 
-    const addresses = ["0x59D40bfAf1899A10E674c535acE5f577D57dD689", "0xe5Ddd0d2408Bb8C6559dDdC2923E3bFCB8DA16F3","0x422eB4C884f8f5054b28072cD53f44B605680ef6"];
+    //const addresses = ["0x59D40bfAf1899A10E674c535acE5f577D57dD689", "0xe5Ddd0d2408Bb8C6559dDdC2923E3bFCB8DA16F3","0x422eB4C884f8f5054b28072cD53f44B605680ef6"];
 
-    let count = BigInt(0);
-
+    let count = 0;
+    
     for(let i = 0; i < chains.length; i++){
         const provider = new ethers.JsonRpcProvider(await getProviderURL(chains[i]));
 
-        const contract = new ethers.Contract(addresses[i], ABI, provider);
+        const contract = new ethers.Contract("0x47BE42b034eC10Ab6F6881D61909D6dAe1F813ad", ABI, provider);
 
         const res = await contract.getNumberOfLocalStakedBuds();
-        
-        const resBig = BigInt(res);
 
-        count+=resBig;
+        count+=Number(res);
     }
     
-    return count.toLocaleString();
+    return count;
 }   
 
 module.exports = getGlobalBudsCount
