@@ -1,0 +1,22 @@
+
+service: tokenDataEndpoint
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  timeout: 30
+  runtime: nodejs16.x
+  region: eu-west-3
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: /
+          method: ANY
+      - http: ANY /{proxy+}
+    environment:
+      
+
