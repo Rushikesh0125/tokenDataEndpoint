@@ -19,6 +19,7 @@ app.get('/totalStakedBudsAcrossAllChains', async (req, res) => {
         // Handle the response data here
         const totalStakedBudsAcrossAllChains = await getGlobalBudsCount();
         console.log(totalStakedBudsAcrossAllChains);
+        
         res.json({totalStakedBudsAcrossAllChains});
 
     } catch (error) {

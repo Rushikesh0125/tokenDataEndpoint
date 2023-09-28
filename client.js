@@ -18,7 +18,7 @@ axios.get(`${serverUrl}/totalStakedBudsAcrossAllChains`)
 
 //33561349
 
-axios.get(`${serverUrl}/getEvents/bscTestnet/raid/33672149/0x47BE42b034eC10Ab6F6881D61909D6dAe1F813ad`)
+axios.get(`${serverUrl}/getEvents/bscTestnet/stake/33680437/0x47BE42b034eC10Ab6F6881D61909D6dAe1F813ad`)
   .then((response) => {
     // Handle the response data here
     const res = response.data;

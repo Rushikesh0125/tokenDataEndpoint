@@ -69,4 +69,4 @@ jspm_packages
 .env
 
 getDeployedAddresses.js
-./serverless.yaml
+./serverless.yml
